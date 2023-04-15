@@ -9,8 +9,8 @@ contract FindThisHash {
 
     constructor() public payable {} // load with ether
 
-    function solve(string solution) public {
+    function solve(string memory solution) public {
         require(hash == sha3(solution));
-        msg.sender.transfer(1000 ether);
+        payable(msg.sender).transfer(1000 ether);
     }
 }
